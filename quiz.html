@@ -33,6 +33,7 @@
             display: grid;
             grid-template-rows: min-content max-content max-content;
             font-size: 1.2rem;
+            justify-content: space-evenly;
         }
 
         .question {
@@ -266,6 +267,26 @@
             /* Semi-transparent black background */
             z-index: 999;
             /* Ensure it covers the entire page but behind the popup image */
+        }
+        @media only screen and (max-width: 680px) {
+            #indicator-container {
+                flex-direction: column;
+                text-align: center;
+
+            }
+            #indicator-container>div{
+            grid-template-columns: 33% auto 33%; 
+            justify-items: center;
+            margin-bottom: 20px;
+            }
+            #timer {
+                margin: auto;
+                text-align: center;
+            }
+            #quiz-container{
+                justify-content: space-between;
+            }
+
         }
     </style>
 </head>
