@@ -289,6 +289,7 @@
 
         }
     </style>
+    
 </head>
 
 <body>
@@ -330,6 +331,7 @@
     </div>
 
     <script>
+        
         function filename() {
                 const urlParams = new URLSearchParams(window.location.search);
                 let num = urlParams.get('x');
@@ -351,6 +353,7 @@
             const milliseconds = String(elapsedTime % 1000).padStart(3, '0').substring(0, 2); // Show two digits
 
             document.getElementById("time-elapsed").textContent = `${hours}:${minutes}:${seconds}:${milliseconds}`;
+            console.log("ut");
         }
         function startTimer() {
             if (!isRunning) { // Start the timer only if it's not already running
@@ -358,6 +361,7 @@
                 timerInterval = setInterval(updateTimer, 10); // Update every 10 ms
                 isRunning = true; // Update the running state
             }
+            console.log("st");
         }
         function pauseTimer() {
             clearInterval(timerInterval); // Stop the timer
@@ -405,6 +409,7 @@
                         answers = data.questions.map(question => question.answer);
                         displayQuestion();
                     });
+                    console.log("lq");
             }
         function displayQuestion() {
                 const questionContainer = document.getElementById("question-container");
@@ -418,7 +423,7 @@
                     const options = questions[currentQuestion].options;
                     b = '';
                     
-                    let c = `<div id="indicator-container" style="height: min - content;"><div style = "display: grid; grid-template-columns: auto auto auto auto; align-items: center;">
+                    let c = `<div id="indicator-container" style="height: min - content;"><div style="display: grid; grid-template-columns: auto auto auto auto; align-items: center;">
                             <span>Question Status:</span>
                             <div id="indicator" class="${indicator}"></div>
                             <span>&nbsp;</span>
@@ -470,7 +475,7 @@
                         displayQuestion();
                     }
                 }
-                
+                console.log("dq");
             }    
         function checkAnswer(selectedOption) {
             if (isTransitioning) return;
@@ -757,18 +762,14 @@
                 // { key: "j", action: "Start Timer" },
                 // { key: "k", action: "Pause Timer" },
                 // { key: "l", action: "Resume Timer" },
-                { key:"Note: ", action: "Exclucively made for computer and not mobiles" },
-                //{ key: "s", action: "Start the Test" },
-                { key: "note: ",action: "press 's' for starting the test otherwise everything will remain blank"},
+                { key: "s", action: "Start the Test" },
                 { key: "e", action: "End the Test" },
-                { key: "i", action: "change interface" },
+                { key: "i", action: "Show/Hide Image" },
                 { key: "1,2,3,4", action: "Select Options" },
                 { key: "Backspace", action: "Go to Previous Question" },
                 { key: "Enter", action: "Show/Close Progress Popup" },
                 { key: "Escape", action: "Close Popups" },
-                { key: "p", action: "Download Progress Data" },
-                { key: "a", action: "Show answer keys" },
-                { key: "enter", action: "Show current results" }
+                { key: "p", action: "Download Progress Data" }
             ];
 
             let message = "Key Bindings:\n";
